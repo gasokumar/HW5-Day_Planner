@@ -1,6 +1,6 @@
 var currentDay = document.querySelector("#currentDay");
 var timeBlocks = document.querySelector(".container");
 
-var nowMoment = moment();
-currentDay.innerHTML = "This is now linked";
+var today = moment().format("[Today is] dddd, MMMM Do");
+currentDay.innerHTML = today;
 // currentDay.innerHTML = nowMoment;
