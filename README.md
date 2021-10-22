@@ -9,4 +9,7 @@ Additionally, when a timeblock is clicked on, the user can enter and event and u
 
 When the page is refreshed, events persist.
 
+
 https://gasokumar.github.io/HW5-Day_Planner/
+
+![image](https://user-images.githubusercontent.com/87357653/138443558-a1f2c045-f9cf-462b-998c-65a3dd3ee8f7.png)
