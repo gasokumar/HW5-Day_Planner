@@ -14,13 +14,23 @@ $(document).ready(function () {
 
   //FUNCTIONS =====================
 
-  for (var i = 0; i < saveBtns.length; i++) {
-    saveBtns[i].addEventListener("click", function () {
-      console.log("You clicked the button");
-    });
-  }
+  $(".saveBtn").on("click", function () {
+    var rowHour = $(this).parent().attr("id"); // Gets id from parent of saveBtn (where row id that tells you the hour of the box is)
+    var description = $(this).siblings(".description").val(); // Gets the text from the description box
 
-  var currentHour = parseInt(moment().format("H"));
+    localStorage.setItem(rowHour, description);
+  });
+
+  // Loads the locaStorage items into their respective description boxes
+  $("#9 .description").val(localStorage.getItem("9"));
+  $("#10 .description").val(localStorage.getItem("10"));
+  $("#11 .description").val(localStorage.getItem("11"));
+  $("#12 .description").val(localStorage.getItem("12"));
+  $("#13 .description").val(localStorage.getItem("13"));
+  $("#14 .description").val(localStorage.getItem("14"));
+  $("#15 .description").val(localStorage.getItem("15"));
+  $("#16 .description").val(localStorage.getItem("16"));
+  $("#17 .description").val(localStorage.getItem("17"));
 });
 
 // GIVEN I am using a daily planner to create a schedule
@@ -39,4 +49,4 @@ $(document).ready(function () {
 // THEN the text for that event is saved in local storage
 
 // WHEN I refresh the page
-// THEN the saved events persist
+// THEN the saved events persists
