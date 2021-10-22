@@ -14,6 +14,7 @@ $(document).ready(function () {
 
   //FUNCTIONS =====================
 
+  //Save Function
   $(".saveBtn").on("click", function () {
     var rowHour = $(this).parent().attr("id"); // Gets id from parent of saveBtn (where row id that tells you the hour of the box is)
     var description = $(this).siblings(".description").val(); // Gets the text from the description box
@@ -21,7 +22,7 @@ $(document).ready(function () {
     localStorage.setItem(rowHour, description);
   });
 
-  // Loads the locaStorage items into their respective description boxes
+  // Loads the locaStorage items into their respective description boxes upon reload
   $("#9 .description").val(localStorage.getItem("9"));
   $("#10 .description").val(localStorage.getItem("10"));
   $("#11 .description").val(localStorage.getItem("11"));
@@ -33,14 +34,12 @@ $(document).ready(function () {
   $("#17 .description").val(localStorage.getItem("17"));
 });
 
+// Changes classes depending on the block's relation to the current hour, resulting in a color change depending on whether the block is in the past, present, or future.
 function hourTracker() {
-  //get current number of hours.
   var currentHour = moment().hour();
 
-  // loop over time blocks
   $(".time-block").each(function () {
     var blockHour = parseInt($(this).attr("id"));
-    console.log(blockHour, currentHour);
 
     if (blockHour < currentHour) {
       $(this).addClass("past");
@@ -58,20 +57,6 @@ function hourTracker() {
   });
 }
 hourTracker(); //re-run function
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
 
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-
-// WHEN I click into a timeblock
-// THEN I can enter an event
-
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-
-// WHEN I refresh the page
-// THEN the saved events persists
