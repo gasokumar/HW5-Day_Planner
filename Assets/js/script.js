@@ -33,6 +33,31 @@ $(document).ready(function () {
   $("#17 .description").val(localStorage.getItem("17"));
 });
 
+function hourTracker() {
+  //get current number of hours.
+  var currentHour = moment().hour();
+
+  // loop over time blocks
+  $(".time-block").each(function () {
+    var blockHour = parseInt($(this).attr("id"));
+    console.log(blockHour, currentHour);
+
+    if (blockHour < currentHour) {
+      $(this).addClass("past");
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+    } else if (blockHour === currentHour) {
+      $(this).removeClass("past");
+      $(this).addClass("present");
+      $(this).removeClass("future");
+    } else {
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+      $(this).addClass("future");
+    }
+  });
+}
+hourTracker(); //re-run function
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
