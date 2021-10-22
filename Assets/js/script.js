@@ -1,23 +1,27 @@
-//DEPENDENCIES
-var saveBtns = document.getElementsByClassName("saveBtn");
-var text = document.querySelector(".description");
-var currentDay = document.querySelector("#currentDay");
-var timeBlocks = document.querySelector(".container");
-var rows = document.getElementsByClassName("row")
-var currentHour = parseInt(moment().format('H'))
+$(document).ready(function () {
+  //DEPENDENCIES ===========================================
+  var saveBtns = document.getElementsByClassName("saveBtn");
+  var description = document.querySelector(".description");
+  var currentDay = document.querySelector("#currentDay");
+  var timeBlocks = document.querySelector(".container");
+  var rows = document.getElementsByClassName("row");
 
-var today = moment().format("[Today is] dddd, MMMM Do");
+  //DATA =========================
 
-currentDay.innerHTML = today;
+  // Setting the day, month, and date at the top of the screen
+  var today = moment().format("[Today is] dddd, MMMM Do");
+  currentDay.innerHTML = today;
 
-for (var i = 0; i < saveBtns.length; i++) {
-  saveBtns[i].addEventListener("click", function () {
-    console.log("You clicked the button");
-  });
-}
+  //FUNCTIONS =====================
 
-if currentHour = 
+  for (var i = 0; i < saveBtns.length; i++) {
+    saveBtns[i].addEventListener("click", function () {
+      console.log("You clicked the button");
+    });
+  }
 
+  var currentHour = parseInt(moment().format("H"));
+});
 
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
