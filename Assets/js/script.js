@@ -54,6 +54,6 @@ $(document).ready(function () {
         $(this).addClass("future");
       }
     });
-    hourTracker();
   }
+  hourTracker();
 });
